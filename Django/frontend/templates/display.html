@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1> This page is to show the products that have been stored.</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>Price</th>
+            <th>GST</th> 
+            <th>Count</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in display_product %}
+        <tr>
+            <td>{{data.product_name}}</td>
+            <td>{{data.product_code}}</td>
+            <td>{{data.price}}</td>
+            <td>{{data.gst}}</td>
+            <td>{{data.count}}</td>
+            <td>
+                <a href="{% url 'updateproduct' data.id %}" class="btn btn-danger">
+                    <button class='btn btn-success'>Update</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'deleteproduct' data.id %}" class="btn btn-danger">
+                    <button class='btn btn-success'>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock%}

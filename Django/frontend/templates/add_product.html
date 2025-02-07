@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content%}
+<style>
+     form{
+          border:2px solid black;
+          padding:15px;
+          border-radius:50px;
+          padding-left:100px;
+          padding-right:100px;
+          padding-top:40px;
+          padding-bottom:40px;
+          
+     }
+</style>
+<h1>This is product adding page</h1>
+<div class ='container'>
+     <form action=" " method='POST'>
+          {% csrf_token %}
+          {{product_form}}<br>
+          <input type='submit' value='ADD PRODUCT' required style='color:white'class="btn btn-success" >
+     </form>
+</div>
+
+{% endblock%}
+
